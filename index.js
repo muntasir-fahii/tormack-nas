@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const userRoutes = require("./routes/user");
+const deviceRoutes = require("./routes/device");
 
 //express app
 const app = express();
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
   res.status(200).json({ messsage: "Welcome to tormack nas" });
 });
 app.use("/api/auth/user", userRoutes);
+app.use("/api/data/device", deviceRoutes);
 
 const port = process.env.PORT || 8080;
 const uri = process.env.MONGO_URI;
